@@ -42,7 +42,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
   void _onButtonPressed(String value) {
     setState(() {
       if (value == 'C') {
-        _expression = '';
+        if (_expression.isNotEmpty) {
+          _expression = _expression.substring(0, _expression.length - 1);
+        }
         _result = '0';
         _justEvaluated = false;
         return;
@@ -50,17 +52,20 @@ class _CalculatorPageState extends State<CalculatorPage> {
 
       if (value == '=') {
         _result = CalculatorEvaluator.evaluate(_expression);
-        _expression = _result;
         _justEvaluated = true;
         return;
       }
 
       if (_isOperator(value)) {
-        if (_justEvaluated && _expression == 'Error') {
+        if (_justEvaluated && _result == 'Error') {
           _expression = value == '-' ? '-' : '';
           _result = '0';
           _justEvaluated = false;
           return;
+        }
+
+        if (_justEvaluated) {
+          _expression = _result;
         }
 
         _justEvaluated = false;
@@ -145,6 +150,14 @@ class _CalculatorPageState extends State<CalculatorPage> {
       );
   }
 
+  void _resetCalculator() {
+    setState(() {
+      _expression = '';
+      _result = '0';
+      _justEvaluated = false;
+    });
+  }
+
   bool _isOperator(String value) {
     return CalculatorEvaluator.isOperator(value);
   }
@@ -154,6 +167,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
     Color? color,
     Color? textColor,
     double fontSize = 28,
+    VoidCallback? onLongPress,
   }) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
@@ -162,6 +176,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
           dimension: 66,
           child: FilledButton(
             onPressed: () => _onButtonPressed(label),
+            onLongPress: onLongPress,
             style: FilledButton.styleFrom(
               backgroundColor: color ?? const Color(0xFFE0E0E0),
               foregroundColor: textColor ?? Colors.black,
@@ -184,6 +199,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
     Color? textColor,
     double fontSize = 28,
     int flex = 1,
+    VoidCallback? onLongPress,
   }) {
     return Expanded(
       flex: flex,
@@ -192,6 +208,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
         color: color,
         textColor: textColor,
         fontSize: fontSize,
+        onLongPress: onLongPress,
       ),
     );
   }
@@ -255,8 +272,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
                     children: [
                       _buildButtonCell(
                         'C',
-                        color: Colors.white,
-                        textColor: Colors.orange,
+                        color: Colors.grey.shade800,
+                        textColor: Colors.white,
+                        onLongPress: _resetCalculator,
                       ),
                       _buildButtonCell(
                         '(',
