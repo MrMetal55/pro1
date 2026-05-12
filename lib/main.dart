@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Calculator',
+      title: 'CalGülator',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.black,
@@ -166,7 +166,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
     String label, {
     Color? color,
     Color? textColor,
-    double fontSize = 28,
+    double fontSize = 32,
     VoidCallback? onLongPress,
   }) {
     return Padding(
@@ -197,7 +197,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
     String label, {
     Color? color,
     Color? textColor,
-    double fontSize = 28,
+    double fontSize = 32,
     int flex = 1,
     VoidCallback? onLongPress,
   }) {
@@ -218,7 +218,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Calculator'),
+        title: const Text('CalGülator'),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
       ),
@@ -280,19 +280,19 @@ class _CalculatorPageState extends State<CalculatorPage> {
                         '(',
                         color: Colors.orange,
                         textColor: Colors.white,
-                        fontSize: 30,
+                        fontSize: 34,
                       ),
                       _buildButtonCell(
                         ')',
                         color: Colors.orange,
                         textColor: Colors.white,
-                        fontSize: 30,
+                        fontSize: 34,
                       ),
                       _buildButtonCell(
                         '÷',
                         color: Colors.orange,
                         textColor: Colors.white,
-                        fontSize: 32,
+                        fontSize: 36,
                       ),
                     ],
                   ),
@@ -305,7 +305,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                         '×',
                         color: Colors.orange,
                         textColor: Colors.white,
-                        fontSize: 32,
+                        fontSize: 36,
                       ),
                     ],
                   ),
@@ -318,7 +318,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                         '-',
                         color: Colors.orange,
                         textColor: Colors.white,
-                        fontSize: 32,
+                        fontSize: 36,
                       ),
                     ],
                   ),
@@ -331,7 +331,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                         '+',
                         color: Colors.orange,
                         textColor: Colors.white,
-                        fontSize: 32,
+                        fontSize: 36,
                       ),
                     ],
                   ),
@@ -341,14 +341,14 @@ class _CalculatorPageState extends State<CalculatorPage> {
                         '.',
                         color: Colors.grey.shade800,
                         textColor: Colors.white,
-                        fontSize: 30,
+                        fontSize: 34,
                       ),
                       _buildButtonCell('0'),
                       _buildButtonCell(
                         '^',
                         color: Colors.orange,
                         textColor: Colors.white,
-                        fontSize: 30,
+                        fontSize: 34,
                       ),
                       Expanded(
                         child: Padding(
@@ -368,7 +368,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                                 child: const Text(
                                   '=',
                                   style: TextStyle(
-                                    fontSize: 30,
+                                    fontSize: 34,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
