@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CalGülator',
+      title: 'Calculator',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.black,
@@ -218,7 +218,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('CalGülator'),
+        title: const Text('Calculator'),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
       ),
