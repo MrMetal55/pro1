@@ -12,7 +12,7 @@ Eine elegante, minimalistische und performante Taschenrechner-App, entwickelt mi
 | :---: |
 | <img src="assets/screenshot.png" width="320" alt="Calculator App Screenshot"/> <br> *Sauberes Grid-Layout mit harmonischen Farbkontrasten für optimale Lesbarkeit.* |
 
-*Tipp für den Upload: Erstelle in deinem Projekt einen Ordner namens `assets`, speichere dort deinen App-Screenshot als `screenshot.png` ab und pushe ihn auf GitHub, damit das Bild hier angezeigt wird.*
+
 
 ---
 
